@@ -1,0 +1,80 @@
+{
+  "main": "main.js",
+  "name": "rescue-fire-service-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "dev": "npx json-server -p 3001 -w data/db.json",
+    "electron": "electron .",
+    "build": "vite build",
+    "tailwind": "tailwindcss -i ./src/App.css -o ./css/main.css",
+    "watch": "tailwindcss -i ./src/App.css -o ./css/main.css --watch",
+    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "build": {
+    "appId": "com.example.rescue-fire-service-app",
+    "files": [
+      "dist/**",
+      "main.js",
+      "preload.js",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true
+    }
+  },
+  "dependencies": {
+    "@dotenvx/dotenvx": "^1.49.0",
+    "axios": "^1.7.9",
+    "bootstrap": "^5.3.8",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "dotenv-extended": "^2.9.0",
+    "express": "^5.1.0",
+    "fa-icons": "^0.2.0",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^3.0.1",
+    "jspdf-autotable": "^5.0.2",
+    "mongodb": "^6.19.0",
+    "mongoose": "^8.18.0",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.10.7",
+    "react-datepicker": "^4.16.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.13.0",
+    "uuid": "^11.1.0"
+  },
+  "development": [
+    "last 1 chrome version",
+    "last 1 firefox version",
+    "last 1 safari version"
+  ],
+  "devDependencies": {
+    "@types/react": "^18.0.37",
+    "@types/react-dom": "^18.0.11",
+    "@types/uuid": "^10.0.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "autoprefixer": "^10.4.22",
+    "electron": "^39.2.6",
+    "electron-builder": "^26.0.12",
+    "eslint": "^8.38.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4",
+    "gh-pages": "^6.3.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.19",
+    "vite": "^4.3.9"
+  },
+  "": "tailwind.config.js",
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
