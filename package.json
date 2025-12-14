@@ -1,10 +1,13 @@
 {
+  "homepage": "https://BakaryTrawally.github.io/",
   "main": "main.js",
   "name": "rescue-fire-service-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "start": "vite",
     "dev": "npx json-server -p 3001 -w data/db.json",
     "electron": "electron .",

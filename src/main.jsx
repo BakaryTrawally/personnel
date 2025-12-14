@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider, } from "react-router-dom"
+import { createHashRouter, RouterProvider } from "react-router-dom";
 // import { HashRouter } from "react-router-dom";
 import About from './pages/About'
 import Index from './pages/Index'
@@ -22,6 +22,30 @@ import ProtectedRoute from './pages/ProtectedRoute'
 import Logout from './pages/Logout'
 // If using CRA:
 
+const router = createHashRouter([
+  {
+    path: "/",
+    element: <Index />
+  },
+  {
+    path: "/register",
+    element: <Register />
+  },
+  // 🔒 Protected Routes
+  {
+    element: <ProtectedRoute />,
+    children: [
+      { path: "/addpersonnel", element: <Personnel /> },
+      { path: "/personnel", element: <Services /> },
+      { path: "/leave", element: <Leave /> },
+      { path: "/addPersonnel/:id", element: <LeaveData /> },
+      { path: "/update/:id", element: <EditForm /> },
+      { path: "/card", loader: loader, element: <Card /> },
+    ]
+  },
+  { path: "/404", element: <NotFound /> }
+]);
+
 
 // const router = createBrowserRouter([
 //   {
@@ -36,7 +60,6 @@ import Logout from './pages/Logout'
 
 //   // 🔒 Protected Routes
 //   {
-//     path: "/app",
 //     element: <ProtectedRoute />,   // <-- no Layout used here
 //     children: [
 //       { path: "/addpersonnel", element: <Personnel /> },
@@ -51,54 +74,54 @@ import Logout from './pages/Logout'
 // { path: "/404", element: <NotFound /> }
 // ]);
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Index/>,
-    errorElement: <ErrorPage/>
-  },
-  {
-    path: "/",
-    element: <ProtectedRoute>
-               <Index/>
-             </ProtectedRoute>,
-            //  errorElement: <ErrorPage/>
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <Index/>,
+//     errorElement: <ErrorPage/>
+//   },
+//   {
+//     path: "/",
+//     element: <ProtectedRoute>
+//                <Index/>
+//              </ProtectedRoute>,
+//             //  errorElement: <ErrorPage/>
    
-  },
-  {
-    path: "/addpersonnel",
-    element: <Personnel/>
-  },
-  {
-    path: "/personnel",
-    element: <Services/>
-  },
-  {
-    path: "/leave",
-    element: <Leave/>
-  },
-  {
-    path: "/register",
-    element: <Register/>
-  },
-  {
-    path: "/addPersonnel/:id",
-    element: <LeaveData/>
-  },
-  {
-    path: "/update/:id",
-    element: <EditForm/>
-  },
-  {
-    path: "/card",
-    loader: loader,
-    element: <Card />
-  },
-  {
-    path: "/404",
-    element: <NotFound />
-  }
-])
+//   },
+//   {
+//     path: "/addpersonnel",
+//     element: <Personnel/>
+//   },
+//   {
+//     path: "/personnel",
+//     element: <Services/>
+//   },
+//   {
+//     path: "/leave",
+//     element: <Leave/>
+//   },
+//   {
+//     path: "/register",
+//     element: <Register/>
+//   },
+//   {
+//     path: "/addPersonnel/:id",
+//     element: <LeaveData/>
+//   },
+//   {
+//     path: "/update/:id",
+//     element: <EditForm/>
+//   },
+//   {
+//     path: "/card",
+//     loader: loader,
+//     element: <Card />
+//   },
+//   {
+//     path: "/404",
+//     element: <NotFound />
+//   }
+// ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
