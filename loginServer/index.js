@@ -24,6 +24,7 @@ mongoose
   })
   .then((res) => {
     console.log("Database connected");
+    console.log("Mongo URI exists:", !!process.env.CONNECTION);
   })
   .catch((error) => {
     console.log(error);
