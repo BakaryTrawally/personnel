@@ -63,12 +63,12 @@ useEffect(() => {
   }, []);
 
  
-console.log(userName)
+// console.log(userName)
     useEffect(() => {
       api.get('/post')
        .then(user => {
          setUser(user.data.name)
-        console.log(user.data.name)
+        // console.log(user.data.name)
          if(user.data === "Success"){
           navigate('/addpersonnel')
          }

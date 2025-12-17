@@ -33,7 +33,7 @@ const router = createHashRouter([
   },
   // 🔒 Protected Routes
   {
-    // element: <ProtectedRoute />,
+    element: <ProtectedRoute />,
     children: [
       { path: "/addpersonnel", element: <Personnel /> },
       { path: "/personnel", element: <Services /> },

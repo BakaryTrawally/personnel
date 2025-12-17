@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import jsPDF from 'jspdf';
@@ -12,24 +12,66 @@ const handleClose = () => setShow(false);
 const handleShow = () => setShow(true);
 
 const printRef = useRef(null)
-
+const capitalizeWords = text =>
+text.replace(/\b\w/g, char => char.toUpperCase());
 
  const exportPDF = () => {
     const doc = new jsPDF();
-    doc.text("Personnel Table", 14, 10);
+    doc.text("Personnel On Leave", 14, 10);
     const tableColumn = ["#", "Personnel on leave", "Proceeding Date", "Resuming Date", "W/Days"];
-    const tableRows = leaveData.map((item, index) => [
-      index + 1,
-      item.leaveName,
-      item.proceedDate,
-      item.resumeDate,
-      item.workingDays
-    ]);
 
-    autoTable(doc, {
+
+const sortedLeaveData = [...leaveData].sort((a, b) => {
+  return new Date(a.resumeDate) - new Date(b.resumeDate);
+});
+
+const tableRows = sortedLeaveData.map((item, index) => [
+  index + 1,
+  capitalizeWords(item.leaveName),
+  item.leaveData,
+  item.proceedDate,
+  item.resumeDate,
+  item.workingDays
+]);
+
+    // const tableRows = leaveData.map((item, index) => [
+    //   index + 1,
+    //   capitalizeWords(item.leaveName),
+    //   item.leaveData,
+    //   item.proceedDate,
+    //   item.resumeDate,
+    //   item.workingDays
+    // ]);
+
+  autoTable(doc, {
       head: [tableColumn],
       body: tableRows,
-      startY: 20
+      startY: 20,
+      styles: { fontSize: 12 },
+    
+    //  headStyles: { fontSize: 16, fontStyle: "bold" },
+     styles: {
+    fillColor: [0, 0, 0],        // black background
+    textColor: [255, 255, 255], // white text
+    fontSize: 16
+    
+  },
+
+  bodyStyles: {
+    fillColor: [0, 0, 0],
+    textColor: [255, 255, 255],
+    lineWidth: .3
+  },
+
+  headStyles: {
+    fillColor: [0, 0, 0],
+    textColor: [255, 255, 255],
+    fontStyle: 'bold'
+  },
+
+  alternateRowStyles: {
+    fillColor: [0, 0, 0] // override default alternate coloring
+  }
     });
     doc.save("personnel_leave.pdf");
   };
@@ -58,7 +100,7 @@ return (
                      <thead className=''>
                          <tr className ="bgDodgerblue text-white">
                          <th className ="border">#</th>
-                         <th className ="border">Full Name</th>
+                         <th className ="border capitalize">Full Name</th>
                          <th className ="border">Proceed Date</th>
                          <th className ="border">Resume Date</th>
                          <th className ="border">working Days</th>

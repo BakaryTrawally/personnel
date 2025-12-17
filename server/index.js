@@ -24,7 +24,12 @@ mongoose
     
 
 app.use(express.json())
-app.use(cors())
+// app.use(cors())
+app.use(cors());
+// app.use(cors({
+//   origin: "https://bakarytrawally.github.io/personnel", // frontend URL
+//   credentials: true
+// }));
 app.use('/leaveApp', routesUrl)
 
 const PORT = 3005
