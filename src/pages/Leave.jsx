@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import apiOne from '../apiOne/leaveData'
+import apiOne from '../apiForAll/axios'
+// import apiOne from '../apiOne/leaveData'
 import App from '../App'
 import Input from './Input'
 import LeaveData from './LeaveData'
@@ -20,7 +21,7 @@ const [fetchErrors, setFetchError ] = useState(null)
 useEffect(() => {
     const fetchItems = async () => {
       try{
-        const response = await apiOne.get('/post');
+        const response = await apiOne.get('/leaveApp');
         setFormData(response.data)
         // console.log(response.data)
       } catch(err){
@@ -80,7 +81,7 @@ useEffect(() => {
             workingDays:workingDays
         }
         try{
-            const response = await apiOne.post('/post', leaveData)
+            const response = await apiOne.post('/leaveApp/post', leaveData)
             console.log("this is form data ", response.data)
             const allPost = [...formData, response.data]
             // Sort by resumeDate

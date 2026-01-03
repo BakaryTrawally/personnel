@@ -4,7 +4,8 @@ import "./index.css"
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './pages/Footer'
-import api from "./loginApi/logindata"
+import api from "./apiForAll/axios"
+// import api from "./loginApi/logindata"
 import { useNavigate } from 'react-router-dom'
 
 
@@ -21,7 +22,7 @@ const handleLogout = () => {
 };
 
 // AUTO LOGOUT TIME
-const autoLogoutTime = 2 * 60 * 1000; // 5 minutes
+const autoLogoutTime = 5 * 60 * 1000; // 5 minutes
   const autoHandleLogout = useCallback(() => {
     localStorage.removeItem("user");
     navigate("/");
@@ -29,7 +30,6 @@ const autoLogoutTime = 2 * 60 * 1000; // 5 minutes
 
   useEffect(() => {
     let logoutTimer;
-
     const resetTimer = () => {
       clearTimeout(logoutTimer);
       logoutTimer = setTimeout(handleLogout, autoLogoutTime);
@@ -65,7 +65,7 @@ useEffect(() => {
  
 // console.log(userName)
     useEffect(() => {
-      api.get('/post')
+      api.get('/personnelApp')
        .then(user => {
          setUser(user.data.name)
         // console.log(user.data.name)
@@ -94,7 +94,7 @@ useEffect(() => {
               '>
                
                 <li>
-                  <Link to="/" >Home</Link>
+                  <Link to="#" >Home</Link>
                 </li>
 
                 <li>

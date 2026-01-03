@@ -70,8 +70,8 @@ const FormData = ({
                  <th className ="border">#</th>
                  <th className ="border">Title</th>
                  <th className ="border">Full Name</th>
-                 <th className ="border">OPS Number</th>
-                 <th className ="border">Action</th>
+                 <th className ="border">OPS Numbers</th>
+                 <th className ="border">Actions</th>
                  </tr>
              </thead>
              <tbody className=""> 
@@ -87,7 +87,7 @@ const FormData = ({
                           <Link 
                           to={`/update/${item._id}`}><button 
                           className='py-2 px-6 bgDodgerblue text-white'>Edit Data</button></Link>
-                            <button className='
+                            <button className=' text-white capitalize
                                py-2 px-4 bg-red-500'
                               onClick = {() => handleDelet(item._id)}
                               >delete</button>

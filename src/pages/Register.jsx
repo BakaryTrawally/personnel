@@ -1,6 +1,7 @@
 import React, {useState } from 'react'
 import App from "../App";
-import api from "../loginApi/logindata"
+import api from "../apiForAll/axios"
+// import api from "../loginApi/logindata"
 import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
@@ -12,7 +13,7 @@ const [password, setPassword] = useState('')
 
  const submit= (e) =>{
     e.preventDefault();
-    api.post('/post', { name, email, password})
+    api.post('/loginApp/register', { name, email, password})
     .then(user => {
         // Save user to localStorage
       localStorage.setItem("user", JSON.stringify(user.data));

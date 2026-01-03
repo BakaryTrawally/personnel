@@ -353,3 +353,7 @@ ul li a{
 .logout{
   color: rgb(13 110 253);
 }
+
+.table-div{
+  width: 70vw;
+}

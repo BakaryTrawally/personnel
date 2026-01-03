@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import App from '../App'
-import api from '../api/formData'
+import api from '../apiForAll/axios'
+// import api from '../api/formData'
 import { useParams, useNavigate } from 'react-router-dom'
 
 
@@ -20,7 +21,7 @@ const EditForm = () => {
 useEffect(() => {
     const fetchItems = async () => {
       try{
-        const response = await api.get('/post/' + id);
+        const response = await api.get('/personnelApp/' + id);
         console.log(response.data)
         setFormData(response.data)
         setEditTitle(response.data.title)
@@ -42,7 +43,7 @@ const handleUpdate = async (e) => {
       const formValues = {title: editTitle, fullName:editFullName, opsNumber: editOpsNumber};
       try{
         // const response = await api.put(`/formData/${id}`, formValues)
-        const response = await api.put('/post/' + id, formValues)
+        const response = await api.put('/personnelApp/' + id, formValues)
         // setFormData(formData.map(post => post.id == id ? { ...response.data} : post )) 
       console.log(response.data)
         navigate('/personnel')

@@ -1,13 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createHashRouter, RouterProvider } from "react-router-dom";
-// import { HashRouter } from "react-router-dom";
-import About from './pages/About'
 import Index from './pages/Index'
 import Personnel from './pages/AddPersonnel'
 import Services from './pages/Personnel'
 import ErrorPage from "./pages/ErrorPage";
-// import Contacts from "./pages/Contacts";
 import Card from './pages/Card'
 import './index.css'
 import "./App.css"

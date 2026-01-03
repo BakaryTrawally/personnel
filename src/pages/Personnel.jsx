@@ -3,7 +3,8 @@ import App from "../App";
 import '../index.css'
 import "../App.css"
 import FormData from "./FormData";
-import api from "../api/formData";
+import api from "../apiForAll/axios";
+// import api from "../api/formData";
 import { useNavigate } from "react-router-dom";
 import EditForm from "./EditForm";
 
@@ -25,7 +26,7 @@ const Personnel = () => {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const response = await api.get("/post");
+        const response = await api.get("/personnelApp");
         setFormData(response.data);
         
       } catch (err) {
@@ -50,7 +51,7 @@ const Personnel = () => {
     console.log(id)
     try {
       // await api.delete(`/formData/${id}`);
-      await api.delete(`/post/${id}`);
+      await api.delete(`/personnelApp/${id}`);
       let totalPersonnel = formData.filter((data) => data.id !== id);
       setFormData(totalPersonnel);
       console.log(formData)

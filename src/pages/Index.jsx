@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import App from '../App'
 import "../index.css"
 import "../App.css"
-import api from "../loginApi/logindata"
+// import api from "../loginApi/logindata"
+import api from "../apiForAll/axios"
 import House from "../images/house.jpg"
 import Input from "../pages/Input"
 import { useNavigate } from 'react-router-dom'
@@ -19,7 +20,7 @@ const navigate = useNavigate();
 
  const handleSubmit= (e) =>{
      e.preventDefault();
-     api.post('/login', {name, email, password})
+     api.post('/loginApp/login', {name, email, password})
      .then(user => {
        console.log(user)
        if(user.data.status === "Success"){
@@ -71,7 +72,7 @@ const navigate = useNavigate();
             <button className='grid m-2 gap-5 w-100 btn btn-secondary '>
             Submit
             </button>
-            <a className='text-primary px-2' href="/register">No Account, register</a>
+            <a className='text-primary px-2' href="/#/register">No Account, Sign Up</a>
         </div>
         </div>
         </form>  

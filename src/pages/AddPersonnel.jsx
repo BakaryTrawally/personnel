@@ -3,7 +3,8 @@ import App from '../App'
 import "../App.css"
 import "../index.css"
 import Form from './Form'
-import api from '../api/formData'
+// import api from '../api/formData'
+import api from '../apiForAll/axios'
 import { useNavigate, useParams } from 'react-router-dom'
 
 
@@ -22,7 +23,7 @@ const navigate = useNavigate();
     const fetchItems = async () => {
       try{
         // const response = await api.get('/formData');
-        const response = await api.get('/post');
+        const response = await api.get('/personnelApp');
         setFormData(response.data)
         // console.log(response.data)
       } catch(err){
@@ -87,7 +88,7 @@ const handleSubmit = async (e) => {
              }; 
             // Crud operations
              try{
-              const response = await api.post('/post', formValues)
+              const response = await api.post('/personnelApp', formValues)
               // console.log("this is form data ", response)
               const allPost = [...formData, response.data]
               setFormData(allPost)
