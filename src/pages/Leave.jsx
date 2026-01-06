@@ -81,7 +81,7 @@ useEffect(() => {
             workingDays:workingDays
         }
         try{
-            const response = await apiOne.post('/leaveApp/post', leaveData)
+            const response = await apiOne.post('/leaveApp', leaveData)
             console.log("this is form data ", response.data)
             const allPost = [...formData, response.data]
             // Sort by resumeDate
@@ -110,7 +110,7 @@ const clearState = () => {
   );
   const handleDelet = async (id) => {
   try{
-    await apiOne.delete(`/post/${id}`);
+    await apiOne.delete(`/leaveApp/${id}`);
     let totalPersonnel = formData.filter(data => data.id != id)
     console.log(typeof id)
     setFormData(totalPersonnel)

@@ -16,7 +16,7 @@ import EditForm from './pages/EditForm'
 import Leave from './pages/Leave'
 import LeaveData from './pages/LeaveData'
 import ProtectedRoute from './pages/ProtectedRoute'
-import Logout from './pages/Logout'
+
 // If using CRA:
 
 const router = createHashRouter([

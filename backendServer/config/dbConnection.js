@@ -1,50 +1,19 @@
 const mongoose = require("mongoose");
 
-// Database
-// const connectPersonnelDB = async () => {
-//   await mongoose
-//   .connect(process.env.PERSONNER_CONNECTION, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//   })
-//   .then(() => console.log("Database connected"))
-//   .catch((err) => console.error(err));
 
-// }
-
+// personnel db
 const connectPersonnelDB = mongoose.createConnection(
   process.env.PERSONNER_CONNECTION,
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
-
-// const connectLoginDB = async () => {
-//  await mongoose
-//   .connect(process.env.LOGIN_CONNECTION, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//   })
-//   .then(() => console.log("Database connected"))
-//   .catch((err) => console.error(err));
-// }
-
+// login db
 const connectLoginDB = mongoose.createConnection(
   process.env.LOGIN_CONNECTION,
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
-
-// const connectLeaveDB = async () => {
-//  await mongoose
-//   .connect(process.env.LEAVE_CONNECTION, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//   })
-//   .then(() => console.log("Database connected"))
-//   .catch((err) => console.error(err));
-
-// }
-
+// leave db
 const connectLeaveDB = mongoose.createConnection(
   process.env.LEAVE_CONNECTION,
   { useNewUrlParser: true, useUnifiedTopology: true }
