@@ -85,16 +85,7 @@ const postTemplate = new mongoose.Schema({
 })
 
 
-// Create models
-// let postTemplat;
-// connectPersonnelDB()
-//   .then((db) => {
-//     postTemplat = db.model("personnel", postTemplate);
-//     console.log("Personnel DB connected");
-//   })
-//   .catch(console.error);
 
-// module.exports = () => postTemplat;
 
 
 

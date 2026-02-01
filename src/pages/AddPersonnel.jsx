@@ -92,7 +92,7 @@ const handleSubmit = async (e) => {
               // console.log("this is form data ", response)
               const allPost = [...formData, response.data]
               setFormData(allPost)
-              // navigate('/personnel')
+              navigate('/personnel')
           
              } catch(err){
               console.log(`Error: ${err.message}`);
@@ -106,8 +106,6 @@ const handleSubmit = async (e) => {
   setOpsNumber("")
   setTitle("")
 };
-
-
 
 return (
 <App >

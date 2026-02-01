@@ -178,6 +178,8 @@ const clearState = () => {
              formData={formData}
              leaveData={leaveData}
              handleDelet={handleDelet}
+             isLoading={isLoading}
+             fetchErrors= {fetchErrors}
              />
         </div>
         </div>

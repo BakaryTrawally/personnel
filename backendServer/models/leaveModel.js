@@ -25,16 +25,7 @@ const leaveSchema = new mongoose.Schema({
 })
 
 
-// Create models
-// let itemModel;
-// connectLeaveDB()
-//   .then((db) => {
-//     itemModel = db.model("personnel", leaveSchema );
-//     console.log("Personnel DB connected");
-//   })
-//   .catch(console.error);
 
-// module.exports = () => itemModel;
 
 const itemModel = connectLeaveDB.model("leaveTable", leaveSchema)
 module.exports = itemModel

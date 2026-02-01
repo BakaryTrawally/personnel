@@ -57,7 +57,6 @@ const FormData = ({
     doc.save("personnel_data.pdf");
   };
 
- 
   return (
     <main 
     ref={printRef}

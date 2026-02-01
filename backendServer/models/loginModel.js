@@ -20,16 +20,7 @@ const  loginModel = new mongoose.Schema({
 })
 
 
-// Create models
-// let loginUsers;
-// connectLoginDB()
-//   .then((db) => {
-//     loginUsers = db.model("personnel", loginModel);
-//     console.log("Personnel DB connected");
-//   })
-//   .catch(console.error);
 
-// module.exports = () => loginUsers;
 
 
 const loginUsers = connectLoginDB.model("loginCollection", loginModel)

@@ -27,7 +27,7 @@ const Card = () => {
        {filteredCountries ? filteredCountries.map((country, index) => {
           return <CardData country={country}  key={index} />
         }): "No Countries "}
-        </>
+      </>
     </App>
   )
 }
